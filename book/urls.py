@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from contacts import views
+from book import views
 
 urlpatterns = [
     path('', views.ContactList.as_view()),

@@ -1,11 +1,11 @@
-from contacts.models import Contact, Number
+from book.models import Contact
 from django.shortcuts import get_object_or_404, get_list_or_404
-from contacts.serializers import ContactSerializer
+from book.serializers import ContactSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
-from contacts.permissions import IsOwner
+from book.permissions import IsOwner
 
 
 class ContactList(APIView):

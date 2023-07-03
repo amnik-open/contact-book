@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from contacts.models import Contact, Number
+from book.models import Contact, Number
 
 
 class NumberSerializer(serializers.ModelSerializer):
