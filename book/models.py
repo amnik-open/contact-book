@@ -38,7 +38,7 @@ class Contact(models.Model):
                                               "characters")]
     )
     description = models.TextField()
-    owner = models.ForeignKey('auth.User', related_name='contacts',
+    owner = models.ForeignKey('users.MyUser', related_name='contacts',
                               on_delete=models.CASCADE)
     objects = ContactManager()
 
