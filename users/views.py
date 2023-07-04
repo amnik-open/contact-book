@@ -7,9 +7,6 @@ from .utils import get_tokens_for_user
 from .serializers import RegistrationSerializer, PasswordChangeSerializer
 
 
-# Create your views here.
-
-
 class RegistrationView(APIView):
     def post(self, request):
         serializer = RegistrationSerializer(data=request.data)
@@ -49,8 +46,7 @@ class ChangePasswordView(APIView):
     def post(self, request):
         serializer = PasswordChangeSerializer(context={'request': request},
                                               data=request.data)
-        serializer.is_valid(
-            raise_exception=True)  # Another way to write is as in Line 17
+        serializer.is_valid(raise_exception=True)
         request.user.set_password(serializer.validated_data['new_password'])
         request.user.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
