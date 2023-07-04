@@ -30,3 +30,9 @@ class ContactSerializer(serializers.ModelSerializer):
         description = validated_data.get('description', instance.description)
         return Contact.objects.update_contact(instance, name, description,
                                               numbers)
+
+class ContactSerializerList(serializers.ModelSerializer):
+    numbers = NumberSerializer(many=True)
+    class Meta:
+        model = Contact
+        fields = ['id', 'name', 'numbers']

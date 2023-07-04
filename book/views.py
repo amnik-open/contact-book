@@ -1,6 +1,6 @@
 from book.models import Contact
 from django.shortcuts import get_object_or_404, get_list_or_404
-from book.serializers import ContactSerializer
+from book.serializers import ContactSerializer, ContactSerializerList
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -21,7 +21,7 @@ class ContactList(APIView):
                 'number'])
         else:
             contacts = Contact.objects.filter(owner=request.user)
-        serializer = ContactSerializer(contacts, many=True)
+        serializer = ContactSerializerList(contacts, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
